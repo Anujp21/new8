@@ -6,6 +6,7 @@ import { Order } from './order.model'
 import { OrderRepository } from './order.repository'
 import { HttpClientModule } from '@angular/common/http'
 import { RestDataSource } from './rest.datasource'
+import {AuthService} from './auth.service'
 
 // make its classes/services available to other modules
 @NgModule({
@@ -17,6 +18,7 @@ import { RestDataSource } from './rest.datasource'
     Cart,
     Order,
     OrderRepository,
+    AuthService,
   ],
 })
 export class ModelModule {}
