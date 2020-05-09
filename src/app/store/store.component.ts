@@ -14,6 +14,16 @@ export class StoreComponent {
   public selectedPage = 1
 
   constructor(private repository: ProductRepository, private cart: Cart, private router: Router) {}
+  
+  searchproduct:string="";
+  new(name:string){
+    var newvalue = this.searchproduct.bold();
+    var new2 = true;
+    if (newvalue !==""){
+      new2 = name.search(newvalue) !== -1;
+    }
+    return new2;
+  }
 
   get products(): Product[] {
     let pageIndex = (this.selectedPage - 1) * this.productsPerPage
