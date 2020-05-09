@@ -17,10 +17,10 @@ export class StoreComponent {
   
   searchproduct:string="";
   new(name:string){
-    var newvalue = this.searchproduct.bold();
+    var filter = this.searchproduct.trim();
     var new2 = true;
-    if (newvalue !==""){
-      new2 = name.search(newvalue) !== -1;
+    if (filter !==""){
+      new2 = name.search(filter) !== -1;
     }
     return new2;
   }
@@ -29,6 +29,7 @@ export class StoreComponent {
     let pageIndex = (this.selectedPage - 1) * this.productsPerPage
     return this.repository
       .getProducts(this.selectedCategory)
+      .filter((product) => this.new(product.name.toLowerCase()))
       .slice(pageIndex, pageIndex + this.productsPerPage)
   }
 
